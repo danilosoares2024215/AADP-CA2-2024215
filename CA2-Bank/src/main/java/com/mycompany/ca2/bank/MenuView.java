@@ -4,6 +4,7 @@
  */
 package com.mycompany.ca2.bank;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -51,7 +52,19 @@ private Scanner myKB = new Scanner(System.in);
         System.out.print("Please enter the name of the file you want to open/read: ");        
         return myKB.nextLine();
         
-    }    
+    }
+
+    // shows the first names of the sorted list (after MergeSort acts) inside the limit set
+    public void showFirstNames(ArrayList<Employee> list, int limit) {
+        
+    System.out.println("\nFirst " + limit + " names in alphabetical order:");
+    
+    for (int i = 0; i < limit && i < list.size(); i++) {
+        
+        System.out.println((i + 1) + ". " + list.get(i).getFullName());
+        
+    }
+}
     
     public void showMessage(String message) {
         

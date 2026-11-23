@@ -51,4 +51,11 @@ public class Employee {
         return department;
         
     }
+    
+    // getter for full name used for sorting
+    public String getFullName() {
+        
+    return firstName + " " + lastName;
+    
+    }
 }

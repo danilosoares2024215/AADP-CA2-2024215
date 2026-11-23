@@ -4,6 +4,8 @@
  */
 package com.mycompany.ca2.bank;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Danilo
@@ -57,6 +59,9 @@ private EmployeeList employeeList = new EmployeeList();
                 
                 case SORT:
                     viewMenu.showMessage("Sort selected.");
+                    ArrayList<Employee> employees = employeeList.getEmployees();
+                    MergeSort.mergeSort(employees, 0, employees.size() - 1);
+                    viewMenu.showFirstNames(employees, 20);
                     break;
                     
                 case SEARCH:
