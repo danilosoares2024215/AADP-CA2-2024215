@@ -12,8 +12,28 @@ package com.mycompany.ca2.bank;
 public class MenuController {
     
 private MenuView viewMenu = new MenuView();
+private EmployeeList employeeList = new EmployeeList();
 
     public void run() {
+        
+        // program asks for the file name until the file is found and read
+        boolean fileLoaded = false;
+    
+        while (!fileLoaded) {
+            
+            String fileName = viewMenu.getFileName();
+            fileLoaded = employeeList.fileReader(fileName);
+
+            if (fileLoaded) {
+                
+                viewMenu.showMessage("File was read successfully.");
+                
+            } else {
+                
+                viewMenu.showMessage("File wasn't found.");
+                
+            }
+        }    
         
         MenuOptions[] options = MenuOptions.values();
 

@@ -11,6 +11,9 @@ package com.mycompany.ca2.bank;
 public class CA2Bank {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        MenuController controller = new MenuController();
+        controller.run();
+        
     }
 }
