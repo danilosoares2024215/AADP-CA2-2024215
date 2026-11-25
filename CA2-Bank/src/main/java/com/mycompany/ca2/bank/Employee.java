@@ -40,7 +40,7 @@ public class Employee {
         
     }
 
-    public String getManagerType() {
+    public String getJobTitle() {
         
         return jobTitle;
         

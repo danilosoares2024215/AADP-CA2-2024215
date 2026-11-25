@@ -67,6 +67,21 @@ private EmployeeList employeeList = new EmployeeList();
                 case SEARCH:
                     
                     viewMenu.showMessage("Search selected.");
+                    ArrayList<Employee> list = employeeList.getEmployees();
+                    MergeSort.mergeSort(list, 0, list.size() - 1); // binarysearch only works on a sorted list, so it has to be sorted first
+
+                    String name = viewMenu.getSearchName();
+                    int position = BinarySearch.binarySearch(list, 0, list.size() - 1, name);
+
+                if (position == -1) {
+                    
+                    viewMenu.showMessage("Employee coudn't be found.");
+                
+                } else {
+                    
+                    viewMenu.showEmployeeDetails(list.get(position));
+        
+                }
                     break;
                     
                 case ADD_RECORDS:

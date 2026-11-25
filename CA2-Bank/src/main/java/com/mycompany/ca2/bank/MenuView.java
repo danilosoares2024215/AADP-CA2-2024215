@@ -66,6 +66,23 @@ private Scanner myKB = new Scanner(System.in);
     }
 }
     
+    // ask the user for the full name to search
+    public String getSearchName() {
+        
+    System.out.print("Enter the full name to search (e.g. Kate Summer): ");
+    return myKB.nextLine().trim(); // remove spaces
+    
+}    
+
+    // shows the details of the employee found
+    public void showEmployeeDetails(Employee employee) {
+        
+    System.out.println("\nEmployee:");
+    System.out.println("\nName: " + employee.getFullName());
+    System.out.println("Job Title: " + employee.getJobTitle());
+    System.out.println("Department: " + employee.getDepartment());
+    
+}    
     public void showMessage(String message) {
         
         System.out.println(message);
