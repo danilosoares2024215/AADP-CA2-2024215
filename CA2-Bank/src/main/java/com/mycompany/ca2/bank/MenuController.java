@@ -87,6 +87,17 @@ private EmployeeList employeeList = new EmployeeList();
                 case ADD_RECORDS:
                     
                     viewMenu.showMessage("Add record selected.");
+                    
+                    //asks for the person informations, adds the employee and shows the last added records
+                    String firstName = askName("First name: ");
+                    String lastName = askName("Last name: ");
+                    String jobTitle = askOption("Job Title (select an option):", employeeList.getJobTitles());
+                    String department = askOption("Department (select an option):", employeeList.getDepartments());
+
+                    employeeList.addEmployee(new Employee(firstName, lastName, jobTitle, department));
+                    viewMenu.showMessage("Employee added to the records");
+                    viewMenu.showNewEmployees(employeeList.getNewEmployees());
+                    
                     break;
                     
                 case CREATE_BINARY_TREE:
@@ -102,4 +113,36 @@ private EmployeeList employeeList = new EmployeeList();
             }
         }
     }
+    
+    // keep asking for user input until the user types something
+    private String askName(String message) {
+        
+        String name = viewMenu.getText(message);
+        
+        while (name.isEmpty()) {
+            
+            viewMenu.showMessage("This field can't be empty.");            
+            name = viewMenu.getText(message);
+            
+        }
+        
+        return name;
+        
+        }
+    
+    // keep askingfor user input until the user picks a number from the list given lists (Job Title and Departtment)
+    private String askOption(String title, ArrayList<String> options) {
+        
+        int choice = viewMenu.getOptionChoice(title, options);
+        
+        while (choice < 1 || choice > options.size()) {
+            
+            viewMenu.showMessage("Please choose a number from the list.");
+            choice = viewMenu.getOptionChoice(title, options);
+            
+        }
+        
+        return options.get(choice - 1);
+        
+        }
 }

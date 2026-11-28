@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class EmployeeList {
 
     private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Employee> newEmployees = new ArrayList<>();
 
     // reads the file and adds it to the list
     public boolean fileReader(String fileName) {
@@ -64,5 +65,56 @@ public class EmployeeList {
         
         return employees;
         
+    }
+    
+    // list of existing job titles
+    public ArrayList<String> getJobTitles() {
+        
+    ArrayList<String> jobTitles = new ArrayList<>();
+    
+        for (Employee employee : employees) {
+        
+            if (!jobTitles.contains(employee.getJobTitle())) {
+            
+                jobTitles.add(employee.getJobTitle());
+            
+                }
+        
+            }
+    
+            return jobTitles;
+        
+            }
+    
+    // list of existing departments
+    public ArrayList<String> getDepartments() {
+        
+    ArrayList<String> departments = new ArrayList<>();
+    
+     for (Employee employee : employees) {
+        
+            if (!departments.contains(employee.getDepartment())) {
+            
+                departments.add(employee.getDepartment());
+            
+                }
+            
+            }
+    
+            return departments;
+        
+            }
+    
+    // adds a new employee to the main list and keep track of those added ones
+    public void addEmployee(Employee employee) {
+        
+        employees.add(employee);
+        newEmployees.add(employee);
+        
+    }
+
+    public ArrayList<Employee> getNewEmployees() {
+        
+        return newEmployees;
     }
 }

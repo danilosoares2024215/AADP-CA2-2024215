@@ -88,4 +88,50 @@ private Scanner myKB = new Scanner(System.in);
         System.out.println(message);
         
     }
+    
+    // asks the user for input and removes spaces
+    public String getText(String message) {
+        
+        System.out.print(message);
+        return myKB.nextLine().trim();
+    
+    }
+    
+    // shows a numbered list and reads the number from user input
+    public int getOptionChoice(String title, ArrayList<String> options) {
+        
+        System.out.println("\n" + title);
+        
+        for (int i = 0; i < options.size(); i++) {
+            
+            System.out.println((i + 1) + ". " + options.get(i));
+        
+        }
+        
+        System.out.print("Choose a number accordingly: ");
+
+        try {
+            
+            return Integer.parseInt(myKB.nextLine().trim());
+        
+        } catch (NumberFormatException e) {
+        
+            return -1;  // catch to returns -1 if it is not a number
+        
+        }
+    }
+
+    // shows all the employees added by the user on this last use
+    public void showNewEmployees(ArrayList<Employee> list) {
+        
+    System.out.println("\nRecent additions:");
+    
+    for (Employee employee : list) {
+        
+        System.out.println("\nName: " + employee.getFullName());
+        System.out.println("Job Title: " + employee.getJobTitle());
+        System.out.println("Department: " + employee.getDepartment());
+        
+        }
+    }    
 }
